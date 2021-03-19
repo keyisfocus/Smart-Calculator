@@ -21,3 +21,11 @@ Consider that the even number of minuses gives a plus, and the odd number of min
 Modify the result of the `/help` command to explain these operations.
 
 ## Stage 5
+Modify your program to handle different cases when the given expression has an invalid format. The program should print `Invalid expression` in such cases. The program must never throw the `NumberFormatException` or any other exception.
+
+If a user enters an invalid command, the program must print `Unknown command`.
+
+## Stage 6
+At this stage, your program should support variables. We suppose that the name of a variable (identifier) can contain only Latin letters. The case is also important; for example, n is not the same as N. The value can be an integer number or a value of another variable.
+
+## 
