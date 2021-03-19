@@ -1,5 +1,6 @@
 package calculator;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -13,17 +14,19 @@ public class Main {
                     break;
                 }
 
+                if (line.equalsIgnoreCase("/help")) {
+                    System.out.println("The program calculates the sum of numbers");
+                    continue;
+                }
+
                 if (line.isEmpty()) {
                     continue;
                 }
 
                 var nums = line.split("\\s+");
-                if (nums.length == 1) {
-                    System.out.println(nums[0]);
-                } else {
-                    System.out.println(Integer.parseInt(nums[0]) +
-                            Integer.parseInt(nums[1]));
-                }
+                System.out.println(Arrays.stream(nums)
+                        .mapToInt(Integer::parseInt)
+                        .sum());
             }
         }
     }
