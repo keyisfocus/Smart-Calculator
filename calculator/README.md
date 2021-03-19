@@ -12,3 +12,12 @@ When the command `/exit` is entered, the program must print `Bye!`, and then sto
 At this stage, the program should read an unlimited sequence of numbers from the standard input and calculate their sum. Also, add a `/help` command to print some information about the program. If you encounter an empty line, do not output anything.
 
 ## Stage 4
+At this stage, your calculator should support the addition + and subtraction - operators.
+
+The program must calculate expressions like these: `4 + 6 - 8`, `2 - 3 - 4`, and so on. It must support both unary and binary minus operators. If the user has entered several same operators following each other, the program still should work (like Java or Python REPL).
+
+Consider that the even number of minuses gives a plus, and the odd number of minuses gives a minus! Look at it this way: `2 -- 2` equals `2 - (-2)` equals `2 + 2`.
+
+Modify the result of the `/help` command to explain these operations.
+
+## Stage 5
