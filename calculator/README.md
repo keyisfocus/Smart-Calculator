@@ -28,4 +28,8 @@ If a user enters an invalid command, the program must print `Unknown command`.
 ## Stage 6
 At this stage, your program should support variables. We suppose that the name of a variable (identifier) can contain only Latin letters. The case is also important; for example, n is not the same as N. The value can be an integer number or a value of another variable.
 
-## 
+## Stage 7
+At this stage, your program should support for multiplication `*`, integer division `/` and parentheses `(...)`. They have a higher priority than addition `+` and subtraction `-`. Do not forget about variables; they, and the unary minus operator, should still work.
+
+## Stage 8
+At this stage, your program must support arithmetic operations with very large numbers as well as parentheses to change the priority within an expression.

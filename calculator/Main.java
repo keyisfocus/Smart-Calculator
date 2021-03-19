@@ -1,5 +1,6 @@
 package calculator;
 
+import java.math.BigInteger;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.HashMap;
@@ -9,7 +10,7 @@ import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Main {
-    private static final Map<String, Integer> vars = new HashMap<>();
+    private static final Map<String, BigInteger> vars = new HashMap<>();
 
     public static void main(String... args) {
 
@@ -126,12 +127,12 @@ public class Main {
             throw new IllegalArgumentException("Invalid expression");
         }
         if (parts[1].matches("-?[0-9]+")) {
-            vars.put(parts[0], Integer.parseInt(parts[1]));
+            vars.put(parts[0], new BigInteger(parts[1]));
         } else {
             if (vars.containsKey(parts[1])) {
                 var v = vars.get(parts[1]);
                 if (parts[1].charAt(0) == '-') {
-                    v = -v;
+                    v = v.negate();
                 }
                 vars.put(parts[0], v);
             } else {
@@ -192,16 +193,16 @@ public class Main {
         }
     }
 
-    private static int calculate(String postfix) {
-        var stack = new ArrayDeque<Integer>();
+    private static BigInteger calculate(String postfix) {
+        var stack = new ArrayDeque<BigInteger>();
         for (String s : postfix.split("\\s+")) {
             if (s.matches("-?[0-9]+")) {
-                stack.push(Integer.parseInt(s));
+                stack.push(new BigInteger(s));
             } else if (s.matches("-?[a-zA-Z]+")) {
                 if (vars.containsKey(s)) {
                     var v = vars.get(s);
                     if (s.charAt(0) == '-') {
-                        v = -v;
+                        v = v.negate();
                     }
                     stack.push(v);
                 } else {
@@ -222,16 +223,16 @@ public class Main {
         }
     }
 
-    private static int performOperation(String operator, int x, int y) {
+    private static BigInteger performOperation(String operator, BigInteger x, BigInteger y) {
         switch (operator) {
             case "+":
-                return x + y;
+                return x.add(y);
             case "-":
-                return x - y;
+                return x.subtract(y);
             case "*":
-                return x * y;
+                return x.multiply(y);
             case "/":
-                return x / y;
+                return x.divide(y);
             default:
                 throw new IllegalArgumentException("Invalid expression");
         }
